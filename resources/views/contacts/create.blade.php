@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-        <form method="POST" action="{{ route('contacts.store') }}">
+        <form method="POST" action="{{ route('contacts.store') }}" enctype="multipart/form-data">  <!-- Para que el formulario acepte imagenes -->
             @csrf
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-3">
@@ -30,6 +30,50 @@
                         <input type="text" name="email" type="email" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" value="{{ old('email') }}">
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
+                </div>
+            </div>
+            <div class="sm:col-span-3">
+                <label for="birthday" class="block text-md font-medium leading-6 text-gray-900">Fecha de nacimiento</label>
+                <div class="mt-2">
+                    <input type="date" name="birthday" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" value="{{ old('birthday') }}">
+                    <x-input-error :messages="$errors->get('birthday')" class="mt-2" />
+                </div>
+            </div>
+            <div class="sm:col-span-3">
+                <label for="company" class="block text-md font-medium leading-6 text-gray-900">Compañía</label>
+                <div class="mt-2">
+                    <input type="text" name="company" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" value="{{ old('company') }}">
+                    <x-input-error :messages="$errors->get('company')" class="mt-2" />
+                </div>
+            </div>
+            <div class="sm:col-span-3">
+                <label for="position" class="block text-md font-medium leading-6 text-gray-900">Posición</label>
+                <div class="mt-2">
+                    <input type="text" name="position" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" value="{{ old('position') }}">
+                    <x-input-error :messages="$errors->get('position')" class="mt-2" />
+                </div>
+            </div>
+
+            <div class="sm:col-span-3">
+    <label for="address" class="block text-md font-medium leading-6 text-gray-900">Dirección</label>
+    <div class="mt-2">
+        <input type="text" name="address" id="address" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" value="{{ old('address') }}">
+        <x-input-error :messages="$errors->get('address')" class="mt-2" />
+    </div>
+</div>
+<div class="sm:col-span-3">
+    <label for="phone" class="block text-md font-medium leading-6 text-gray-900">Teléfono</label>
+    <div class="mt-2">
+        <input type="text" name="phone" id="phone" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" value="{{ old('phone') }}">
+        <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+    </div>
+</div>
+
+            <div class="sm:col-span-3">
+                <label for="profile_photo" class="block text-md font-medium leading-6 text-gray-900">Foto de perfil</label>
+                <div class="mt-2">
+                    <input type="file" name="profile_photo" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                    <x-input-error :messages="$errors->get('profile_photo')" class="mt-2" />
                 </div>
             </div>
             <div class="mt-8 flex items-center justify-center gap-x-6">

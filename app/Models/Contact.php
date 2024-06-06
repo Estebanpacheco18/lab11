@@ -13,5 +13,11 @@ class Contact extends Model
         'last_name',
         'phone',
         'email',
+        'address',
+        'phone_number',
+        'birthday',
+        'company',
+        'position',
+        'profile_photo',
     ];
 }

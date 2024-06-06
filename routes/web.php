@@ -22,3 +22,5 @@ Route::resource('contacts', ContactController::class)
       ->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
       ->middleware(['auth', 'verified']);
 require __DIR__.'/auth.php';
+
+Route::get('contacts/{id}', 'ContactController@show')->name('contacts.show');
